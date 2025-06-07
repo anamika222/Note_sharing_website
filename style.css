@@ -1,0 +1,159 @@
+
+  
+  .topbar {
+    background: linear-gradient(to right, #5c6bc0, #7e57c2);
+    color: white;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  .btn-signup {
+    background-color: #ffc107;
+    color: white;
+    border: none;
+  }
+  
+  .btn-signup:hover {
+    background-color: #ffca28;
+  }
+  
+  .sidebar {
+    height: 100vh;
+    width: 250px;
+    background-color: #6a1b9a;
+    position: fixed;
+    top: 56px;
+    left: -250px; /* Hidden by default */
+    transition: left 0.3s ease;
+    padding-top: 20px;
+    z-index: 5;
+  }
+  
+  .sidebar.active {
+    left: 0;
+  }
+  
+  .sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+  }
+  
+  .sidebar a:hover {
+    background-color: #8e24aa;
+  }
+  
+  .content {
+    margin-top: 70px;
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-weight: bold;
+  }
+  
+  .card-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .card-footer a {
+    font-size: 0.85rem;
+  }
+
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .object-fit-cover {
+    object-fit: cover;
+    height: 100%;
+  }
+  
+  input:invalid {
+    border-color: #dc3545;
+  }
+  
+  input:valid {
+    border-color: #28a745;
+  }
+  
+  input:focus {
+    box-shadow: none;
+  }
+  
+  #togglePassword i {
+    color: #6c757d;
+  }
+
+  
+  
+  /* Full background wrapper using your image */
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
+  }
+  
+  .full-bg-wrapper {
+    min-height: 100vh;
+    background: url('homepage.jpg') center center/cover no-repeat;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: #fff;
+  }
+  
+  /* Hero section */
+  .hero-section {
+    text-align: center;
+    margin-bottom: 40px;
+    color: rgb(22, 109, 156);
+  }
+  
+  .hero-section h1 {
+    font-size: 3em;
+    margin: 0;
+  }
+  
+  .hero-section p {
+    font-size: 1.3em;
+    margin-top: 10px;
+  }
+  
+  /* Features */
+  .features {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+  }
+  
+  .feature-card {
+    background-color: rgba(255, 255, 255, 0.1); /* semi-transparent white */
+    border-radius: 15px;
+    padding: 30px;
+    width: 250px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    color: #1576a7;
+    transition: transform 0.3s ease;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .feature-card i {
+    font-size: 40px;
+    margin-bottom: 15px;
+  }
+  
