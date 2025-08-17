@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - NotesShare</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>User Profile</h1>
+
+        <div class="profile-info">
+            <img id="profile-pic" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile Picture" class="profile-pic" onclick="changeProfilePic()">
+            <div>
+                <h2 id="username">John Doe</h2>
+                <p id="email">johndoe@example.com</p>
+                <p id="bio">📚 Passionate learner and note sharer.</p>
+                <p>Joined: <span id="join-date">January 2025</span></p>
+            </div>
+        </div>
+
+        <h2>Your Uploaded Notes</h2>
+        <div id="notes-list" class="notes-list">
+            <!-- Notes will be loaded here dynamically -->
+        </div>
+    </div>
+
+    <input type="file" id="file-input" accept="image/*" style="display:none">
+
+    <script src="profile.js"></script>
+</body>
+</html>
