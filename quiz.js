@@ -82,3 +82,31 @@ function renderLeaderboard() {
 renderLeaderboard();
 
 });
+
+
+// === Backend hookup: load quiz by note_id ===
+document.addEventListener("DOMContentLoaded", async ()=>{
+  const params = new URLSearchParams(location.search);
+  const note_id = params.get("note_id");
+  if (!note_id) return;
+  const res = await fetch("api/quiz_by_note.php?note_id="+note_id);
+  const data = await res.json();
+  const list = document.getElementById("quizList");
+  if (!list) return;
+  list.innerHTML = "";
+  if (data.ok && data.quiz.length){
+    data.quiz.forEach((q,idx)=>{
+      const div = document.createElement("div");
+      div.className = "card mb-2";
+      const opts = q.options || {};
+      div.innerHTML = `
+        <div class="card-body">
+          <h5 class="card-title">Q${idx+1}. ${q.question}</h5>
+          ${["A","B","C","D"].map(k=> opts[k] ? `<div><label><input type="radio" name="q${idx}" value="${k}"> ${k}) ${opts[k]}</label></div>` : "").join("")}
+        </div>`;
+      list.appendChild(div);
+    });
+  } else {
+    list.innerHTML = "<p class='text-muted'>No quiz available for this note.</p>";
+  }
+});

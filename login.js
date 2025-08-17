@@ -30,3 +30,24 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   alert("Login successful! Redirecting to homepage...");
   window.location.href = "index.html"; // go back to home
 });
+
+
+// === Backend hookup ===
+document.getElementById("loginForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+  try{
+    const res = await fetch("api/login.php", {method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({email, password})});
+    const data = await res.json();
+    if(data.ok){
+      localStorage.setItem("user", JSON.stringify(data.user));
+      window.location.href = "index.html";
+    }else{
+      const err = document.getElementById("loginError");
+      if(err){ err.textContent = data.error || "Login failed"; err.style.display="block"; }
+      else alert(data.error || "Login failed");
+    }
+  }catch(err){ alert("Network error"); }
+});

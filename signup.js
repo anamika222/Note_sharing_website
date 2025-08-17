@@ -55,3 +55,21 @@ document.getElementById("signupForm").addEventListener("submit", function (e) {
 });
 
   
+
+// === Backend hookup ===
+document.getElementById("signupForm").addEventListener("submit", async function(e){
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+  try{
+    const res = await fetch("api/signup.php", {method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({name, email, password})});
+    const data = await res.json();
+    if(data.ok){
+      localStorage.setItem("user", JSON.stringify(data.user));
+      window.location.href = "index.html";
+    }else{
+      alert(data.error || "Sign up failed");
+    }
+  }catch(err){ alert("Network error"); }
+});

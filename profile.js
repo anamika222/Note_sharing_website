@@ -56,3 +56,41 @@ document.getElementById("file-input").addEventListener("change", function(event)
         reader.readAsDataURL(file);
     }
 });
+
+
+// === Backend hookup: my notes + delete ===
+async function loadMyNotes(){
+  const res = await fetch("api/notes_list.php?mine=1");
+  const data = await res.json();
+  const container = document.getElementById("uploadedNotes");
+  if (!container) return;
+  container.innerHTML = "";
+  if (data.ok && data.notes.length){
+    data.notes.forEach(n=>{
+      const div = document.createElement("div");
+      div.className = "note-item";
+      div.innerHTML = `
+        <div>
+          <h3>${n.title}</h3>
+          <p>Subject: ${n.topic}</p>
+          ${n.file_path ? `<button onclick="viewPDF('${n.file_path}')" class="btn-view">View</button>`:""}
+          <button class="btn-delete" data-id="${n.id}">Delete</button>
+        </div>`;
+      container.appendChild(div);
+    });
+    container.querySelectorAll(".btn-delete").forEach(b=>{
+      b.addEventListener("click", async ()=>{
+        const id = b.dataset.id;
+        if (!confirm("Delete this note and its quizzes?")) return;
+        const res = await fetch("api/note_delete.php", {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({note_id:id})});
+        const data = await res.json();
+        if (data.ok) loadMyNotes();
+        else alert(data.error || "Delete failed");
+      });
+    });
+  }else{
+    container.innerHTML = "<p class='text-muted'>No uploaded notes yet.</p>";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadMyNotes);

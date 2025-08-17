@@ -1,0 +1,110 @@
+/* notes.css */
+
+body {
+  background: linear-gradient(135deg, #e0f2ff, #fef6ff);
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 40px 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #2c3e50;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.auto-redirect-msg {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 30px;
+}
+
+.search-bar {
+  max-width: 400px;
+  margin: 0 auto 25px;
+  position: relative;
+}
+
+.search-bar input {
+  padding: 10px 16px;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+}
+
+.filter-buttons {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.filter-buttons .btn {
+  margin: 5px;
+  padding: 6px 16px;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.filter-buttons .btn:hover,
+.filter-buttons .btn.active {
+  transform: scale(1.05);
+  background-color: #007bff;
+  color: #fff;
+}
+
+.note-card .card {
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  border: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.note-card .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.card-subtitle {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.card-footer {
+  background-color: #f9f9f9;
+  border-top: 1px solid #eee;
+}
+
+.btn-sm i {
+  margin-right: 6px;
+}
+
