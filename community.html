@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Community - NotesShare</title>
+  <link rel="stylesheet" href="community.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="community-container">
+    <h1><i class="fas fa-comments"></i> Community Chat</h1>
+    <p>Ask academic questions and get answers from AI (ChatGPT)!</p>
+
+    <div class="chat-options">
+      <button onclick="openChat()">Open ChatGPT Chatbot</button>
+    </div>
+
+    <!-- ChatGPT UI -->
+    <div id="chatContainer" style="display: none;">
+      <h2>Chat with GPT</h2>
+      <div id="chatBox" class="chat-box"></div>
+      <div class="input-group">
+        <input type="text" id="userInput" placeholder="Ask something...">
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
+
+    <!-- Optional iframe (if you want to use chat.openai.com instead) -->
+     <div id="chatFrame" class="chat-frame" style="display: none;">
+      <iframe src="https://chat.openai.com/" frameborder="0"></iframe>
+    </div> 
+
+  </div>
+
+  <script src="community.js"></script>
+</body>
+</html>
